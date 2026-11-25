@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Club Invoice for [11/2026] - Centered design</title>
+<!--
+  DUMMY EMAIL: Club Invoice (Super Admin -> Club) - Centered design
+  Standalone email file: open it directly or load it through ../index.html (design switcher).
+  Same body content as the real email (config/mail_templates.php "club_invoice_manual").
+  Email clients ignore external CSS, so styles are inline on purpose and the layout uses tables.
+  Images live in ../assets/. A live mailer needs absolute image URLs.
+-->
+<style>
+  body { margin: 0; padding: 0; background-color: #f7f8fe; }
+  table { border-collapse: separate; border-spacing: 0; }
+  img { border: 0; display: block; }
+  @media only screen and (max-width: 620px) {
+    .wrap { width: 100% !important; }
+    .pad { padding-left: 16px !important; padding-right: 16px !important; }
+    .btn-full { display: block !important; }
+    .amount { font-size: 32px !important; }
+  }
+  /* ---- PREVIEW SWITCHER (page chrome only, remove before using as a real email) ---- */
+  .ds-switch { position: fixed; top: 16px; right: 16px; z-index: 50; font-family: Arial, sans-serif; }
+  .ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border: 1px solid #c5cbea; border-radius: 999px; background: #fff; color: #3f51b5; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(63,81,181,0.35); transition: background-color .15s ease; }
+  .ds-btn:hover { background: #eceefb; }
+  .ds-menu { display: none; position: absolute; right: 0; top: 48px; min-width: 230px; padding: 6px; background: #fff; border: 1px solid #dfe3f4; border-radius: 12px; box-shadow: 0 10px 24px rgba(63,81,181,0.18); }
+  .ds-switch.open .ds-menu { display: block; }
+  .ds-opt { display: block; padding: 9px 12px; border-radius: 8px; font-size: 13px; color: #2b2f4a; text-decoration: none; transition: background-color .15s ease; }
+  .ds-opt:hover { background: #f7f8fe; }
+  .ds-opt.active { background: #eceefb; color: #3f51b5; font-weight: 700; }
+  /* ---- END PREVIEW SWITCHER CSS ---- */
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#f7f8fe;">
+
+<!-- PREVIEW SWITCHER (page chrome only, remove before using as a real email) -->
+<div class="ds-switch" id="dsSwitch">
+  <button type="button" class="ds-btn" id="dsBtn" aria-haspopup="true" aria-expanded="false">&#8644; Design</button>
+  <div class="ds-menu">
+    <a class="ds-opt active" href="centered.html">Centered design</a>
+    <a class="ds-opt" href="split.html">Split design</a>
+    <a class="ds-opt" href="card.html">Card design</a>
+    <a class="ds-opt" href="floating.html">Floating design</a>
+    <a class="ds-opt" href="curved.html">Curved design</a>
+    <a class="ds-opt" href="indigo.html">Indigo page design</a>
+    <a class="ds-opt" href="accent.html">Accent design</a>
+    <a class="ds-opt" href="light.html">Light design</a>
+    <a class="ds-opt" href="eagle.html">Eagle design</a>
+  </div>
+</div>
+<script>
+  (function () {
+    var box = document.getElementById("dsSwitch");
+    document.getElementById("dsBtn").addEventListener("click", function (e) { e.stopPropagation(); box.classList.toggle("open"); });
+    document.addEventListener("click", function () { box.classList.remove("open"); });
+  })();
+</script>
+<!-- END PREVIEW SWITCHER -->
+
+<!-- Inbox preview text -->
+<div style="display:none; max-height:0; overflow:hidden; opacity:0; font-size:1px; line-height:1px; color:#f7f8fe;">
+  Your Monthly Software Subscription bill is now ready for payment. Current balance $125.00.
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f8fe;">
+  <tr>
+    <td align="center" style="padding:32px 12px;">
+
+      <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
+
+        <!-- Card -->
+        <tr>
+          <td style="background-color:#ffffff; border:1px solid #dfe3f4; border-radius:16px; overflow:hidden; box-shadow:0 1px 3px rgba(63,81,181,0.08);">
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+              <!-- Header: solid indigo band, centered sidebar logo -->
+              <tr>
+                <td class="pad" align="center" style="background-color:#3f51b5; padding:28px 28px 28px 28px;">
+                  <!-- Same logo as the app sidebar (images/logo-white.png). Self-contained here: ../assets/logo-white.png. Live mailer needs an absolute URL -->
+                  <img src="../assets/logo-white.png" width="260" alt="Helping With Flags" style="width:260px; max-width:100%; height:auto; margin:0 auto;">
+                </td>
+              </tr>
+              <!-- Header accent line -->
+              <tr>
+                <td height="4" style="height:4px; font-size:0; line-height:0; background-color:#dde1f7;">&nbsp;</td>
+              </tr>
+
+              <!-- Body: same content and structure as the real email (config/mail_templates.php "club_invoice_manual"); only the header and footer are restyled -->
+              <tr>
+                <td class="pad" align="center" style="padding:28px 28px 32px 28px; font-family:Arial, sans-serif; font-size:16px; line-height:1.6; color:#2b2f4a; text-align:center;">
+                  <p style="margin:0 0 16px 0;"><b>Payment Due</b></p>
+                  <p style="margin:0 0 16px 0;">Your Monthly Software Subscription bill is now ready for payment</p>
+                  <p style="margin:0 0 16px 0;">Payment Period</p>
+                  <p style="margin:0 0 16px 0;">Nov 01, 2026 - Nov 30, 2026</p>
+                  <p style="margin:0 0 16px 0;">Current Balance</p>
+                  <p style="margin:0 0 16px 0;"><b>$125.00</b></p>
+                  <p style="margin:0 0 16px 0;">Sign in to your account below to review and complete payment</p>
+                  <p style="margin:0;"><a href="https://example.com/rotary-club-demo/invoice-payment" style="color:#3f51b5; text-decoration:underline;">SIGN IN TO MY ACCOUNT</a></p>
+                </td>
+              </tr>
+
+              <!-- Footer: single tinted band inside the card -->
+              <tr>
+                <td class="pad" align="center" style="background-color:#eceefb; border-top:1px solid #dfe3f4; padding:22px 28px; font-family:Arial, sans-serif; font-size:13px; line-height:1.7; color:#6b7090; text-align:center;">
+                  Questions? Contact us at <a href="mailto:support@helpingwithflags.com" style="color:#3f51b5; font-weight:600; text-decoration:none;">support@helpingwithflags.com</a><br>
+                  <a href="https://app.helpingwithflags.com/terms-of-service" target="_blank" style="color:#3f51b5; font-weight:600; text-decoration:underline;">Terms of Service</a>
+                  &nbsp;&bull;&nbsp;
+                  <a href="https://app.helpingwithflags.com/privacy-policy" target="_blank" style="color:#3f51b5; font-weight:600; text-decoration:underline;">Privacy Policy</a><br>
+                  &copy; 2026 Helping With Flags. All rights reserved.
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
